@@ -1,0 +1,12 @@
+Usage: ynpm [options]
+
+Options:
+
+  -c, --config      	Show config
+  -p, --path 			Set backUp path
+  -v, --version         Show version
+  -h, --help            Show help
+  -i, install 			install dependencies
+  publish               publish to git
+
+  

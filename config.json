@@ -1,0 +1,4 @@
+{
+	"backUpPath": "/Users/river/webProjects/ynpm/back-up",
+	"dependencies": ["dependencies", "devDependencies", "peerDependencies"]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ynpm",
+  "version": "0.0.12",
+  "description": "ymt node站点node_modules 管理工具",
+  "main": "bin/ynpm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "author": "river",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/river-lee/ynpm.git"
+  },
+  "bin": "./bin/ynpm",
+  "keywords": [],
+  "email": "e23jiang@sina.com",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "dependencies": {
+    "nopt": "^3.0.6",
+    "semver": "^5.1.0"   
+  }
+}

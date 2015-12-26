@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+'use strict';
+var path = require('path');
+
+var options = require('../lib/cli').options,
+	info = require('../lib/info'),
+	config = require('../config'),
+	fu = require('../lib/file-utils'),
+	configPath = path.normalize(__dirname + '/../config.json');
+
+if(options.version){
+   return info.version();
+}
+
+if(options.help){
+	return info.help();
+}
+
+if(options.config){
+	console.log(configPath,config);
+}else if(options.path){
+	var remain = options.argv.remain,
+		_path = remain[0];
+
+	if(_path){
+		config.backUpPath = _path;
+	}
+
+	fu.writeConfig(configPath,config);
+	process.exit();
+}
+
+if(options.install || options.argv.remain[0] === 'install'){
+	return require('../lib/install');
+}
+
+if(options.publish || options.argv.remain[0] === 'publish'){
+	return require('../lib/publish');
+}
+
+info.help();

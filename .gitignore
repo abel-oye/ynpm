@@ -1,0 +1,12 @@
+*.zip
+*.rar
+*.bak
+*.log
+.DStore
+node_modules
+config.js
+.svn
+.project
+.metadata
+.DS_Store
+back-up

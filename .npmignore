@@ -1,0 +1,3 @@
+# ignore any vim files:
+node_modules
+back-up
