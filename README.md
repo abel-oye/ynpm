@@ -1,9 +1,11 @@
-# ynpm
+Node.js:ynpm
+===========
 
-ynpm 是作为洋码头 node 站点发布node_modules管理工具。
-***
+`ynpm` 是作为洋码头 node 站点发布node_modules管理工具。
+
+
 有什么用？
-
+-------------------
 在整个码头node站点发布过程中，总是出现，编译时间过长。原因很多：
 * 下载超时（即使使用了cnpm，淘宝的npm镜像也会导致下载失败，现有部分包不走npm下载，直接走github或者国外官网下载。使用proxy也时常不稳定）
 * node_modules 并入到源码提交到git上，下载时间过长；多个项目大量重复modules,现有的发布过程中，都会清空workspace重新下载。
@@ -12,7 +14,7 @@ ynpm 是作为洋码头 node 站点发布node_modules管理工具。
 
 
 怎么用？
-
+-------------------
 ```javascript
   Usage: ynpm [options]
 
@@ -27,7 +29,7 @@ ynpm 是作为洋码头 node 站点发布node_modules管理工具。
 
 ```
 
-注意：
+**注意：**
 	所有的依赖查找不支持，非版本外的匹配。
 
 See [semver](https://docs.npmjs.com/misc/semver) for more details about specifying version ranges.
@@ -58,7 +60,7 @@ version Must match version exactly
 模块生成规则：backUpPath/moduleName/version/moduleName
 
 模块匹配规则：
- ```javascript
+ ```js
 semver.valid('1.2.3') // '1.2.3'
 semver.valid('a.b.c') // null
 semver.clean('  =v1.2.3   ') // '1.2.3'

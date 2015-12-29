@@ -6,7 +6,8 @@ var options = require('../lib/cli').options,
 	info = require('../lib/info'),
 	config = require('../config'),
 	fu = require('../lib/file-utils'),
-	configPath = path.normalize(__dirname + '/../config.json');
+	configPath = path.normalize(__dirname + '/../config.json'),
+	argv = options.argv.remain;
 
 if(options.version){
    return info.version();
@@ -19,8 +20,7 @@ if(options.help){
 if(options.config){
 	console.log(configPath,config);
 }else if(options.path){
-	var remain = options.argv.remain,
-		_path = remain[0];
+	var _path = argv[0];
 
 	if(_path){
 		config.backUpPath = _path;
@@ -30,12 +30,16 @@ if(options.config){
 	process.exit();
 }
 
-if(options.install || options.argv.remain[0] === 'install'){
-	return require('../lib/install');
+if(options.install || argv[0] === 'install'){
+	return require('../lib/install').install();
 }
 
-if(options.publish || options.argv.remain[0] === 'publish'){
+if(options.publish || argv[0] === 'publish'){
 	return require('../lib/publish');
+}
+
+if(options.publish || argv[0] === 'install-test'){
+	return require('../lib/install-test').test();
 }
 
 info.help();
